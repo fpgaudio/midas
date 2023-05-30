@@ -124,4 +124,5 @@ set_location_assignment PIN_AF18 -to o_lcd7_5[5]
 set_location_assignment PIN_AH18 -to o_lcd7_5[6]
 set_location_assignment PIN_AF16 -to debug_out
 set_global_assignment -name SYSTEMVERILOG_FILE output_files/midi_to_freq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE output_files/leap_in.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
