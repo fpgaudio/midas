@@ -1,0 +1,572 @@
+Analysis & Synthesis report for test_program
+Tue May 30 18:04:17 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_0|mod_7seg:u_lcd_upper
+ 13. Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_0|mod_7seg:u_lcd_lower
+ 14. Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_1|mod_7seg:u_lcd_upper
+ 15. Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_1|mod_7seg:u_lcd_lower
+ 16. Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_2|mod_7seg:u_lcd_upper
+ 17. Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_2|mod_7seg:u_lcd_lower
+ 18. Port Connectivity Checks: "mod_byte_display:u_7seg_2"
+ 19. Port Connectivity Checks: "mod_byte_display:u_7seg_1"
+ 20. Port Connectivity Checks: "mod_byte_display:u_7seg_0"
+ 21. Port Connectivity Checks: "midi_to_freq:get_freq"
+ 22. Port Connectivity Checks: "midi_custom:mymidi"
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 30 18:04:17 2023      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; test_program                               ;
+; Top-level Entity Name              ; test_program                               ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 146                                        ;
+;     Total combinational functions  ; 146                                        ;
+;     Dedicated logic registers      ; 64                                         ;
+; Total registers                    ; 64                                         ;
+; Total pins                         ; 95                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; test_program       ; test_program       ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
+; test_program.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/altera/13.1/fj_programs/test_program.sv              ;         ;
+; midi_custom.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/altera/13.1/fj_programs/midi_custom.sv               ;         ;
+; output_files/mod_byte.sv         ; yes             ; User SystemVerilog HDL File  ; C:/altera/13.1/fj_programs/output_files/mod_byte.sv     ;         ;
+; output_files/mod_7seg.sv         ; yes             ; User SystemVerilog HDL File  ; C:/altera/13.1/fj_programs/output_files/mod_7seg.sv     ;         ;
+; output_files/midi_to_freq.sv     ; yes             ; User SystemVerilog HDL File  ; C:/altera/13.1/fj_programs/output_files/midi_to_freq.sv ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 146            ;
+;                                             ;                ;
+; Total combinational functions               ; 146            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 79             ;
+;     -- 3 input functions                    ; 15             ;
+;     -- <=2 input functions                  ; 52             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 119            ;
+;     -- arithmetic mode                      ; 27             ;
+;                                             ;                ;
+; Total registers                             ; 64             ;
+;     -- Dedicated logic registers            ; 64             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 95             ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 64             ;
+; Total fan-out                               ; 755            ;
+; Average fan-out                             ; 1.89           ;
++---------------------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                      ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Library Name ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
+; |test_program                  ; 146 (0)           ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 95   ; 0            ; |test_program                                                ; work         ;
+;    |midi_custom:mymidi|        ; 89 (89)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|midi_custom:mymidi                             ; work         ;
+;    |midi_to_freq:get_freq|     ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|midi_to_freq:get_freq                          ; work         ;
+;    |mod_byte_display:u_7seg_1| ; 14 (0)            ; 14 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|mod_byte_display:u_7seg_1                      ; work         ;
+;       |mod_7seg:u_lcd_lower|   ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|mod_byte_display:u_7seg_1|mod_7seg:u_lcd_lower ; work         ;
+;       |mod_7seg:u_lcd_upper|   ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|mod_byte_display:u_7seg_1|mod_7seg:u_lcd_upper ; work         ;
+;    |mod_byte_display:u_7seg_2| ; 14 (0)            ; 14 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|mod_byte_display:u_7seg_2                      ; work         ;
+;       |mod_7seg:u_lcd_lower|   ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|mod_byte_display:u_7seg_2|mod_7seg:u_lcd_lower ; work         ;
+;       |mod_7seg:u_lcd_upper|   ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_program|mod_byte_display:u_7seg_2|mod_7seg:u_lcd_upper ; work         ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++----------------------------------------------------+-------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal           ; Free of Timing Hazards ;
++----------------------------------------------------+-------------------------------+------------------------+
+; midi_to_freq:get_freq|freq[0]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[1]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[2]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[3]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[4]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[5]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[6]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; midi_to_freq:get_freq|freq[7]                      ; midi_to_freq:get_freq|WideOr1 ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                               ;                        ;
++----------------------------------------------------+-------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++-----------------------------------------------------------------+-----------------------------------------+
+; Register name                                                   ; Reason for Removal                      ;
++-----------------------------------------------------------------+-----------------------------------------+
+; mod_byte_display:u_7seg_0|mod_7seg:u_lcd_lower|o_segments[0]    ; Stuck at VCC due to stuck port data_in  ;
+; mod_byte_display:u_7seg_0|mod_7seg:u_lcd_lower|o_segments[1,2]  ; Stuck at GND due to stuck port data_in  ;
+; mod_byte_display:u_7seg_0|mod_7seg:u_lcd_lower|o_segments[3..5] ; Stuck at VCC due to stuck port data_in  ;
+; mod_byte_display:u_7seg_0|mod_7seg:u_lcd_upper|o_segments[0..5] ; Stuck at GND due to stuck port data_in  ;
+; mod_byte_display:u_7seg_0|mod_7seg:u_lcd_lower|o_segments[6]    ; Stuck at VCC due to stuck port data_in  ;
+; mod_byte_display:u_7seg_0|mod_7seg:u_lcd_upper|o_segments[6]    ; Stuck at VCC due to stuck port data_in  ;
+; midi_custom:mymidi|state[3]                                     ; Merged with midi_custom:mymidi|state[2] ;
+; midi_custom:mymidi|state[2]                                     ; Stuck at GND due to stuck port data_in  ;
+; Total Number of Removed Registers = 16                          ;                                         ;
++-----------------------------------------------------------------+-----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 64    ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 26    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |test_program|midi_custom:mymidi|byte_count[1] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |test_program|midi_custom:mymidi|index[7]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |test_program|midi_custom:mymidi|state[1]      ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |test_program|midi_custom:mymidi|count[13]     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_0|mod_7seg:u_lcd_upper ;
++----------------+---------+------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                             ;
++----------------+---------+------------------------------------------------------------------+
+; DEFAULT_STATE  ; 0000000 ; Unsigned Binary                                                  ;
++----------------+---------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_0|mod_7seg:u_lcd_lower ;
++----------------+---------+------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                             ;
++----------------+---------+------------------------------------------------------------------+
+; DEFAULT_STATE  ; 0000000 ; Unsigned Binary                                                  ;
++----------------+---------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_1|mod_7seg:u_lcd_upper ;
++----------------+---------+------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                             ;
++----------------+---------+------------------------------------------------------------------+
+; DEFAULT_STATE  ; 0000000 ; Unsigned Binary                                                  ;
++----------------+---------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_1|mod_7seg:u_lcd_lower ;
++----------------+---------+------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                             ;
++----------------+---------+------------------------------------------------------------------+
+; DEFAULT_STATE  ; 0000000 ; Unsigned Binary                                                  ;
++----------------+---------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_2|mod_7seg:u_lcd_upper ;
++----------------+---------+------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                             ;
++----------------+---------+------------------------------------------------------------------+
+; DEFAULT_STATE  ; 0000000 ; Unsigned Binary                                                  ;
++----------------+---------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_byte_display:u_7seg_2|mod_7seg:u_lcd_lower ;
++----------------+---------+------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                             ;
++----------------+---------+------------------------------------------------------------------+
+; DEFAULT_STATE  ; 0000000 ; Unsigned Binary                                                  ;
++----------------+---------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "mod_byte_display:u_7seg_2" ;
++--------+-------+----------+---------------------------+
+; Port   ; Type  ; Severity ; Details                   ;
++--------+-------+----------+---------------------------+
+; i_nrst ; Input ; Info     ; Stuck at VCC              ;
++--------+-------+----------+---------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "mod_byte_display:u_7seg_1" ;
++--------+-------+----------+---------------------------+
+; Port   ; Type  ; Severity ; Details                   ;
++--------+-------+----------+---------------------------+
+; i_nrst ; Input ; Info     ; Stuck at VCC              ;
++--------+-------+----------+---------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "mod_byte_display:u_7seg_0" ;
++--------+-------+----------+---------------------------+
+; Port   ; Type  ; Severity ; Details                   ;
++--------+-------+----------+---------------------------+
+; i_nrst ; Input ; Info     ; Stuck at VCC              ;
++--------+-------+----------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "midi_to_freq:get_freq"                                                                                                                       ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; rst_n ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "midi_custom:mymidi"                                                                  ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; state ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue May 30 18:04:16 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_program -c test_program
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 10 of the 10 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.sv
+    Info (12023): Found entity 1: uart_rx
+Warning (10275): Verilog HDL Module Instantiation warning at test_program.sv(65): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at test_program.sv(71): ignored dangling comma in List of Port Connections
+Info (12021): Found 1 design units, including 1 entities, in source file test_program.sv
+    Info (12023): Found entity 1: test_program
+Info (12021): Found 3 design units, including 3 entities, in source file output_files/midi.sv
+    Info (12023): Found entity 1: midiReceive
+    Info (12023): Found entity 2: up_counter
+    Info (12023): Found entity 3: edge_detect
+Info (12021): Found 1 design units, including 1 entities, in source file midi_custom.sv
+    Info (12023): Found entity 1: midi_custom
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/mod_byte.sv
+    Info (12023): Found entity 1: mod_byte_display
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/mod_7seg.sv
+    Info (12023): Found entity 1: mod_7seg
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/midi_to_freq.sv
+    Info (12023): Found entity 1: midi_to_freq
+Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.sv(23): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.sv(24): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.sv(25): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.sv(26): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.sv(27): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Info (12127): Elaborating entity "test_program" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at test_program.sv(108): truncated value with size 32 to match size of target (28)
+Warning (10034): Output port "LEDR" at test_program.sv(13) has no driver
+Warning (10034): Output port "BYTE_OUT" at test_program.sv(14) has no driver
+Info (12128): Elaborating entity "midi_custom" for hierarchy "midi_custom:mymidi"
+Warning (10230): Verilog HDL assignment warning at midi_custom.sv(30): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at midi_custom.sv(39): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at midi_custom.sv(44): truncated value with size 32 to match size of target (8)
+Info (12128): Elaborating entity "midi_to_freq" for hierarchy "midi_to_freq:get_freq"
+Warning (10270): Verilog HDL Case Statement warning at midi_to_freq.sv(7): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at midi_to_freq.sv(6): inferring latch(es) for variable "freq", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "freq[0]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[1]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[2]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[3]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[4]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[5]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[6]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[7]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[8]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[9]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[10]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[11]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[12]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[13]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[14]" at midi_to_freq.sv(6)
+Info (10041): Inferred latch for "freq[15]" at midi_to_freq.sv(6)
+Info (12128): Elaborating entity "mod_byte_display" for hierarchy "mod_byte_display:u_7seg_0"
+Info (12128): Elaborating entity "mod_7seg" for hierarchy "mod_byte_display:u_7seg_0|mod_7seg:u_lcd_upper"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch midi_to_freq:get_freq|freq[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13012): Latch midi_to_freq:get_freq|freq[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal midi_custom:mymidi|out_bytes[12]
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+    Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDR[17]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[0]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[1]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[2]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[3]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[4]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[5]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[6]" is stuck at GND
+    Warning (13410): Pin "BYTE_OUT[7]" is stuck at GND
+    Warning (13410): Pin "o_freq[8]" is stuck at VCC
+    Warning (13410): Pin "o_freq[9]" is stuck at GND
+    Warning (13410): Pin "o_freq[10]" is stuck at GND
+    Warning (13410): Pin "o_freq[11]" is stuck at GND
+    Warning (13410): Pin "o_freq[12]" is stuck at GND
+    Warning (13410): Pin "o_freq[13]" is stuck at GND
+    Warning (13410): Pin "o_freq[14]" is stuck at GND
+    Warning (13410): Pin "o_freq[15]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_0[6]" is stuck at VCC
+    Warning (13410): Pin "o_lcd7_0[5]" is stuck at VCC
+    Warning (13410): Pin "o_lcd7_0[4]" is stuck at VCC
+    Warning (13410): Pin "o_lcd7_0[3]" is stuck at VCC
+    Warning (13410): Pin "o_lcd7_0[2]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_0[1]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_0[0]" is stuck at VCC
+    Warning (13410): Pin "o_lcd7_1[6]" is stuck at VCC
+    Warning (13410): Pin "o_lcd7_1[5]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_1[4]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_1[3]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_1[2]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_1[1]" is stuck at GND
+    Warning (13410): Pin "o_lcd7_1[0]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/altera/13.1/fj_programs/output_files/test_program.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "EX_IO[0]"
+    Warning (15610): No output dependent on input pin "EX_IO[1]"
+    Warning (15610): No output dependent on input pin "EX_IO[2]"
+    Warning (15610): No output dependent on input pin "EX_IO[3]"
+    Warning (15610): No output dependent on input pin "EX_IO[4]"
+    Warning (15610): No output dependent on input pin "EX_IO[5]"
+    Warning (15610): No output dependent on input pin "SERIAL_IN"
+Info (21057): Implemented 241 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 85 output pins
+    Info (21061): Implemented 146 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 89 warnings
+    Info: Peak virtual memory: 4666 megabytes
+    Info: Processing ended: Tue May 30 18:04:17 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/altera/13.1/fj_programs/output_files/test_program.map.smsg.
+
+
