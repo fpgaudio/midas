@@ -2,7 +2,7 @@ module leap_in(
     input logic clk,
     input logic serial,
 	input logic rst_n,
-    output logic [159:0] out_bytes,
+    output logic [39:0] out_bytes,
     output logic [3:0] state);
 
     //state 0: waiting for start bit
@@ -28,7 +28,7 @@ module leap_in(
 			count <= 0;
 		end
         if(state > 0) count <= count + 1;
-        if(state == 1 && count > 800) begin
+        if(state == 1 && count >= 217) begin
             state <= 2;
             count <= 0;
         end
@@ -38,12 +38,12 @@ module leap_in(
             count <= 0;
             byte_count <= byte_count + 1;
         end
-        if(state == 2 && count > 1600 )begin
+        if(state == 2 && count >= 434)begin
             out_bytes[index + 8*byte_count] <= serial;
             //out_bytes[index] <= serial;
             index <= index + 1;
             count <= 0;
         end
-        if(byte_count >= 21) byte_count <= 0;
+        if(byte_count >= 5) byte_count <= 0;
     end
 endmodule
