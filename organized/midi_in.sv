@@ -1,8 +1,8 @@
-module leap_in(
+module midi_custom(
     input logic clk,
     input logic serial,
-	input logic rst_n,
-    output logic [159:0] out_bytes,
+	  input logic rst_n,
+    output logic [23:0] out_bytes,
     output logic [3:0] state);
 
     //state 0: waiting for start bit
@@ -12,7 +12,7 @@ module leap_in(
 
     logic [15:0] count;
     logic [7:0] index;
-    logic [5:0] byte_count;
+    logic [1:0] byte_count;
 
     always @(posedge clk) begin
 	 
@@ -56,4 +56,3 @@ module leap_in(
         end
     end
 endmodule
-

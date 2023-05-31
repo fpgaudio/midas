@@ -1,13 +1,14 @@
 module midi_custom(
     input logic clk,
     input logic serial,
-	input logic rst_n,
+	  input logic rst_n,
     output logic [23:0] out_bytes,
     output logic [3:0] state);
 
     //state 0: waiting for start bit
     //state 1: aligning with center of bit
     //state 2: grabbing bits
+    //state 3: passing the rest of the final bit
 
     logic [15:0] count;
     logic [7:0] index;
@@ -34,7 +35,7 @@ module midi_custom(
         end
         if(index >= 8) begin
             index <= 0;
-            state <= 0;
+            state <= 3;
             count <= 0;
             byte_count <= byte_count + 1;
         end
@@ -44,6 +45,15 @@ module midi_custom(
             index <= index + 1;
             count <= 0;
         end
-        if(byte_count >= 4) byte_count <= 0;
+        if(byte_count >= 3) begin
+            byte_count <= 0;
+            state <= 3;
+            count <= 0;
+        end
+        if(state == 3 && count > 800) begin
+            state <= 0;
+            count <= 0;
+        end
     end
 endmodule
+
